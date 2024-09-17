@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>New Article</title>
+        <link rel="stylesheet" href="/static/blog.css">
+    </head>
+<body>
+    <a href="/">back</a>
+    <form action="/edit_article/{{.ID}}" method="post" autocomplete="off">
+        <input type="hidden" name="id_article" value="{{.ID}}">
+        <div class="form-group">
+            <label for="name">Title</label>
+            <input id="title" name="title" type="text" value="{{.Title}}">
+        </div>
+        <div class="form-group">
+            <button>hello</button>
+        </div>
+    </form>
+    <script>
+                
+        const form = document.querySelector('form');
+        form.addEventListener('formdata', (event) => {
+            // Append Quill content before submitting
+            event.formData.append('source', document.querySelector(".ql-editor").innerHTML);
+        });
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet">
+    
+    <div id="editor">
+      {{.Source}}
+    </div>
+    
+    <script>
+      const quill = new Quill('#editor', {
+        theme: 'snow'
+      });
+    </script>
+
+</body>
+</html>

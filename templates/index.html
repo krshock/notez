@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Main Screen</title>
+        <link rel="stylesheet" href="/static/blog.css">
+    </head> 
+<body class="pt-serif-regular">
+
+<h1>Note Server</h1>
+<a href="/create_article">Create Article</a><br />
+<h2>Note list</h2>
+{{if eq (len .) 0}}
+    No articles Yet
+{{end}}
+
+{{range .}}
+<div>
+    <h1><a href="view_article/{{.ID}}">{{.Title}}</a></h1>
+    <p>{{.Source}}</p>
+</div>
+{{end}}
+</body>
+</html>

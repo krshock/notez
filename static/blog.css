@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'playfair';
+    src: url('./RobotoSlab-VariableFont_wght.ttf');
+}
+
+body {
+    font-family: playfair;
+    font-size: 1.5em;
+    margin:    0 auto;
+    max-width: 900px;
+}
